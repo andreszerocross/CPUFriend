@@ -1,5 +1,53 @@
 CPUFriend Changelog
 ===================
+#### v1.3.0
+- Added constants for macOS 26 support
+
+#### v1.2.9
+- Fixed loading on macOS 10.10 and older due to a MacKernelSDK regression
+
+#### v1.2.8
+- Added constants for macOS 15 support
+
+#### v1.2.7
+- Added constants for macOS 14 support
+
+#### v1.2.6
+- Added constants for macOS 13 support
+
+#### v1.2.5
+- Added support from macOS 10.6
+- Improved FrequencyVectors analyzer by @usr-sse2
+- Changed project ownership to Acidanthera
+
+#### v1.2.4
+- Added constants for macOS 12 support
+
+#### v1.2.3
+- Improved path handling in generator scripts
+
+#### v1.2.2
+- Added MacKernelSDK with Xcode 12 compatibility
+
+#### v1.2.1
+- Added constants for 11.0 support
+
+#### v1.2.0
+- Dropped broken AppleIntelMCEReporter prevention support
+
+#### v1.1.9
+- Unified release archive names
+- Added support for prevention of AppleIntelMCEReporter, details can be found [here](https://github.com/acidanthera/bugtracker/issues/424#issuecomment-512596034)
+
+#### v1.1.8
+- Allow loading on 10.15 without `-lilubetaall`
+
+#### v1.1.7
+- Reduced debug logging in release builds
+
+#### v1.1.6
+- Fixed a bug where CPUFriend ceased to work on v1.1.5
+
 #### v1.1.5
 - Support for the old ACPI_SMC_Plugin (as claimed in TO-DO)
 

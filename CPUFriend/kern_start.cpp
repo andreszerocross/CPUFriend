@@ -2,7 +2,7 @@
 //  kern_start.cpp
 //  CPUFriend
 //
-//  Copyright © 2017 Vanilla. All rights reserved.
+//  Copyright © 2017-2022 PMheart. All rights reserved.
 //
 
 #include <Headers/plugin_start.hpp>
@@ -34,8 +34,8 @@ PluginConfiguration ADDPR(config) {
 	arrsize(bootargDebug),
 	bootargBeta,
 	arrsize(bootargBeta),
-	KernelVersion::MountainLion,
-	KernelVersion::Mojave,
+	KernelVersion::SnowLeopard,
+	KernelVersion::Tahoe,
 	[]() {
 		cpuf.init();
 	}

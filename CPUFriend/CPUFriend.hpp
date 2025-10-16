@@ -2,14 +2,14 @@
 //  CPUFriend.hpp
 //  CPUFriend
 //
-//  Copyright © 2017 Vanilla. All rights reserved.
+//  Copyright © 2017-2022 PMheart. All rights reserved.
 //
 
 #ifndef kern_cpuf_hpp
 #define kern_cpuf_hpp
 
 #include <Headers/kern_patcher.hpp>
-#include <Library/LegacyIOService.h>
+#include <IOKit/IOService.h>
 
 class EXPORT CPUFriendData : public IOService {
 	OSDeclareDefaultStructors(CPUFriendData)
@@ -19,7 +19,7 @@ public:
 
 class CPUFriendPlugin {
 public:
-	bool init();
+	void init();
 	
 	/**
 	 *  Loaded user-specified frequency data
@@ -39,12 +39,6 @@ private:
 	mach_vm_address_t orgX86PPConfigLoadCallback   {0};
 
 	/**
-	 *  Hooked ResourceLoad callback returning user-specified platform data
-	 */
-	static void myACPISMCConfigResourceCallback(uint32_t requestTag, kern_return_t result, const void *resourceData, uint32_t resourceDataLength, void *context);
-	static void myX86PPConfigResourceCallback(uint32_t requestTag, kern_return_t result, const void *resourceData, uint32_t resourceDataLength, void *context);
-
-	/**
 	 *  Update resource request parameters with hooked data if necessary
 	 *
 	 *  @param result             kOSReturnSuccess on resource update
@@ -52,6 +46,12 @@ private:
 	 *  @param resourceDataLength resource data length reference
 	 */
 	void updateResource(kern_return_t &result, const void * &resourceData, uint32_t &resourceDataLength);
+	
+	/**
+	 *  Hooked functions
+	 */
+	static void myACPISMCConfigResourceCallback(uint32_t requestTag, kern_return_t result, const void *resourceData, uint32_t resourceDataLength, void *context);
+	static void myX86PPConfigResourceCallback(uint32_t requestTag, kern_return_t result, const void *resourceData, uint32_t resourceDataLength, void *context);
 
 	/**
 	 *  Patch kext if needed and prepare other patches
